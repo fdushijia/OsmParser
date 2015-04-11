@@ -1,0 +1,9 @@
+D:\Study\课程\毕设\ParseOsm\ParseOsm\bin\Debug\ParseOsm.exe.config
+D:\Study\课程\毕设\ParseOsm\ParseOsm\bin\Debug\ParseOsm.exe
+D:\Study\课程\毕设\ParseOsm\ParseOsm\bin\Debug\ParseOsm.pdb
+D:\Study\课程\毕设\ParseOsm\ParseOsm\obj\Debug\ParseOsm.csprojResolveAssemblyReference.cache
+D:\Study\课程\毕设\ParseOsm\ParseOsm\obj\Debug\ParseOsm.exe
+D:\Study\课程\毕设\ParseOsm\ParseOsm\obj\Debug\ParseOsm.pdb
+D:\Git\OsmParser\ParseOsm\bin\Debug\ParseOsm.exe.config
+D:\Git\OsmParser\ParseOsm\obj\Debug\ParseOsm.exe
+D:\Git\OsmParser\ParseOsm\obj\Debug\ParseOsm.pdb
