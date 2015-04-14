@@ -43,3 +43,7 @@ Temporary Items
 .apdisk
 
 *.cache
+ParseOsm/ParseOsm/bin
+ParseOsm/ParseOsm/obj
+ShareTaxi/ShareTaxi/Debug
+
