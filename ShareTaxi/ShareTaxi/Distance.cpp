@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "Distance.h"
 
-#define PI				3.1415926
+#define PI		3.1415926
 #define EARTH_RADIUS    6378.137
 
 using namespace std;
