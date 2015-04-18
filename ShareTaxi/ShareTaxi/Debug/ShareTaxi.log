@@ -1,8 +1,12 @@
-﻿生成启动时间为 2015/4/14 20:09:53。
+﻿生成启动时间为 2015/4/18 11:44:13。
      1>项目“D:\Study\课程\毕设\ShareTaxi\ShareTaxi\ShareTaxi.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         F:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Distance.cpp
-         Distance.cpp
+         F:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt RoadInfo.cpp
+         RoadInfo.cpp
+     1>d:\study\课程\毕设\sharetaxi\sharetaxi\roadinfo.cpp(40): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>d:\study\课程\毕设\sharetaxi\sharetaxi\roadinfo.cpp(41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>d:\study\课程\毕设\sharetaxi\sharetaxi\roadinfo.cpp(59): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>d:\study\课程\毕设\sharetaxi\sharetaxi\roadinfo.cpp(65): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
        Link:
          F:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Study\课程\毕设\ShareTaxi\Debug\ShareTaxi.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Study\课程\毕设\ShareTaxi\Debug\ShareTaxi.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Study\课程\毕设\ShareTaxi\Debug\ShareTaxi.lib" /MACHINE:X86 Debug\Distance.obj
          Debug\RoadInfo.obj
@@ -11,4 +15,4 @@
 
 生成成功。
 
-已用时间 00:00:02.63
+已用时间 00:00:01.31

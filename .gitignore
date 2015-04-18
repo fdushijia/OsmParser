@@ -45,5 +45,7 @@ Temporary Items
 *.cache
 ParseOsm/ParseOsm/bin
 ParseOsm/ParseOsm/obj
+ShareTaxi/Debug
 ShareTaxi/ShareTaxi/Debug
+
 
