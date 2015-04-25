@@ -5,12 +5,15 @@
 #include <vector>
 #include <cstring>
 #include <queue>
+#include <stdlib.h> 
+#include <time.h>
 #include "Distance.h"
 
 using namespace std;
 
-#define ALL_NODES 500000
-#define MAX_DIST  1000000000
+#define ALL_NODES 500000      //图中Node的最大值
+#define MAX_DIST  1000000000  //初始最大距离
+#define RATIO     3           //这个系数用来控制SPFA剪枝    
 
 float lat[500000], lon[500000];
 float minDist[500000];
@@ -31,7 +34,7 @@ int n;
 void init() {
 
 	cout<<"Constructing the road..."<<endl;
-	ifstream fin("newNodes.txt");
+	ifstream fin("newNodes_long.txt");
 	string idTemp, latTemp, lonTemp;
 	int i = 0;
 
@@ -47,7 +50,7 @@ void init() {
 	fin.close();
 	
 	cout<<"Constructing..."<<endl;
-	ifstream wayIn("newWays.txt");
+	ifstream wayIn("newWays_long.txt");
 	string ss, tt;
 	int s, t;
 	while (wayIn>>ss>>tt) {
@@ -102,9 +105,11 @@ void initDist(int s) {
  * 因为路网转化成图之后是稀疏图，这里用SPFA算法求单源点最短路径
  */
 float SPFA(int s, int t) {
+	cout<<"SPFA..."<<endl;
 	initDist(s);
 	q.push(s);
 	int k;
+	float lineDist;
 	while (!q.empty()) {
 		k = q.front();
 		q.pop();
@@ -113,12 +118,14 @@ float SPFA(int s, int t) {
 		while (p) {
 			if (minDist[k] + p->dist < minDist[p->id]) {
 				minDist[p->id] = minDist[k] + p->dist;
-			}
-			if (!visit[p->id]) {
-				visit[p->id] = true;
-				q.push(p->id);
+				lineDist = Distance::getDist(lat[s], lon[s], lat[p->id], lon[p->id]);
+				if (!visit[p->id] && minDist[p->id] <= RATIO * lineDist) {
+					visit[p->id] = true;
+					q.push(p->id);
+				}
 			}
 			p = p->next;
+
 		}
 
 	}
@@ -127,8 +134,17 @@ float SPFA(int s, int t) {
 
 int main() {
 	init();
-	
+
+	time_t rawtime; 
+	struct tm * timeinfo; 
+
+	time(&rawtime); 
+	timeinfo = localtime(&rawtime); 
+	printf ("系统时间是: %s", asctime (timeinfo) ); 
 	cout<<SPFA(46274, 46293)<<endl;
+	time(&rawtime); 
+	timeinfo = localtime(&rawtime); 
+	printf ("系统时间是: %s", asctime (timeinfo) ); 
 	recycle();
 
 	return 0;
