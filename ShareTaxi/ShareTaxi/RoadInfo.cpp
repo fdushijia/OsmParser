@@ -139,12 +139,14 @@ void SPFA(int s) {
 		visit[k] = false;
 		NeighNode *p = neighbour[k];
 		while (p) {
-			if (minDist[k] + p->dist < minDist[p->id]) {
-				minDist[p->id] = minDist[k] + p->dist;
-				lineDist = Distance::getDist(roadNodes[s].lat, roadNodes[s].lon, roadNodes[p->id].lat, roadNodes[p->id].lon);
-				if (!visit[p->id] /*&& minDist[p->id] <= 4 * lineDist*/) {
-					visit[p->id] = true;
-					q.push(p->id);
+			int neighbourId = p->id;
+			if (minDist[k] + p->dist < minDist[neighbourId]) {
+				minDist[neighbourId] = minDist[k] + p->dist;
+				
+				lineDist = Distance::getDist(roadNodes[s].lat, roadNodes[s].lon, roadNodes[neighbourId].lat, roadNodes[neighbourId].lon);
+				if (!visit[neighbourId]) {
+					visit[neighbourId] = true;
+					q.push(neighbourId);
 				}
 			}
 			p = p->next;
@@ -160,14 +162,16 @@ void getAllDistToBorder() {
 	//int b;
 	//cin>>b;
 	ofstream fout("Dist_to_borders.txt");
-	for (int i = 0; i < ALL_NODES; i++) {
-		if (i >= 10000) break;
-	    fout<<i<<endl;
+	for (int i = 210; i < ALL_NODES; i++) {
+		//if (i >= 10000) break;
+
 		cout<<"Node: "<<i<<endl;
 		if (neighbour[i] == NULL) continue;
 		int label = roadNodes[i].blockNum;
+		int borderSize = borderroadNodes[label].size();
+		fout<<i<<" "<<borderSize<<endl;
 		SPFA(i);
-		for (int j = 0; j < borderroadNodes[label].size(); j++) {
+		for (int j = 0; j < borderSize; j++) {
 			fout<<minDist[borderroadNodes[label][j]]<<" ";
 		}
 		fout<<endl;
